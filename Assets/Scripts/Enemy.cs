@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
+
     public Sprite HurtEnemy;
     public Sprite DeadEnemy;
     public Rigidbody2D enemy; //creating rigidbody for itself
@@ -24,13 +25,14 @@ public class Enemy : MonoBehaviour
     void Update()
     {
         moveEnemy();
-        if (check == 20)
+        if (check == 15)
         {
            this.gameObject.GetComponent<SpriteRenderer>().sprite = HurtEnemy;
         }
-        if (check == 40)
+        if (check == 30)
         {
             this.gameObject.GetComponent<SpriteRenderer>().sprite = DeadEnemy;
+            SoundManagerScript.PlaySound("win");
         }
     }
 
@@ -60,6 +62,7 @@ public class Enemy : MonoBehaviour
         }
         if (col.gameObject.name == "PlayerProjectile(Clone)")
         {
+            SoundManagerScript.PlaySound("playerHit");
             col.gameObject.SetActive(false);
 
             check += 1;

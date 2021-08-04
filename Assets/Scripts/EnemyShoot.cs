@@ -6,7 +6,6 @@ public class EnemyShoot : MonoBehaviour
 {
 
     public GameObject projectile;
-
     public Transform projectileSpawn;
 
     public float nextFire = 1.0f;
@@ -21,7 +20,8 @@ public class EnemyShoot : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        enemyShoot();
+        
+        enemyShoot();   
     }
 
     public void enemyShoot()
